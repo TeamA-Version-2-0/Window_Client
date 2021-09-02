@@ -1,0 +1,17 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="528" Width="900" ResizeMode="NoResize">
+    <Grid Margin="0,-6,0,6">
+        <DataGrid Margin="10,77,234,4" ItemsSource="{Binding Forbidden_words}"></DataGrid>
+        <Button Command="{Binding Add}" Content="Добавить" HorizontalAlignment="Left" Margin="685,77,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
+        <Button Command="{Binding Delete}" Content="Удалить" HorizontalAlignment="Left" Margin="685,157,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
+        <Button Command="{Binding Update}" Content="Изменить" HorizontalAlignment="Left" Margin="685,237,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
+        <Label Content="Группа ID:" HorizontalAlignment="Left" Height="26" Margin="10,28,0,0" VerticalAlignment="Top" Width="73"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="88,28,0,0" VerticalAlignment="Top" Width="24"/>
+    </Grid>
+</Window>

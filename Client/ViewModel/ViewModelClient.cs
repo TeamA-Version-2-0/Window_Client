@@ -12,7 +12,6 @@ namespace Client
 {
     public class ViewModelClient : INotifyPropertyChanged
     {
-        private NetworkClient network = new NetworkClient();
         private ModelClient selectedblacklistitem;
         private string addblacklistitem;
 
@@ -63,21 +62,21 @@ namespace Client
         public void Add_word(string text)
         {
             if (!String.IsNullOrWhiteSpace(text))
-                network.Connect().Add(text);
+                NetworkClient.GetInstance().Add(text);
             this.AddBlacklistItem = string.Empty;
             Get_blacklist_words();
         }
 
         public void Delete_word(ModelClient id)
         {
-            network.Connect().Remove(id.Word);
+            NetworkClient.GetInstance().Remove(id.Word);
             Get_blacklist_words();
         }
 
         public void Get_blacklist_words()
         {
             Blacklist.Clear();
-            List<string> items = JsonConvert.DeserializeObject<List<string>>(network.Connect().GetBlackList());
+            List<string> items = JsonConvert.DeserializeObject<List<string>>(NetworkClient.GetInstance().GetBlackList());
             items.ForEach(x => this.Blacklist.Add(new ModelClient(x)));
         }
 

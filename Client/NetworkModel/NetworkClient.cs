@@ -7,22 +7,25 @@ using System.Threading.Tasks;
 
 namespace Client
 {
-    class NetworkClient
+    public class NetworkClient
     {
-        public string ServiceAddress { get; set; }
-        public string ServiceName { get; set; }
+        private NetworkClient() { }
 
-        public NetworkClient() { }
-
-        public IServiceSql Connect()
+        private static IServiceSql connection()
         {
-            this.ServiceAddress = "";
-            this.ServiceName = "";
             Uri uri = new Uri("http://koelson1-001-site1.itempurl.com/Service1.svc");
             EndpointAddress endPoint = new EndpointAddress(uri);
             BasicHttpBinding httpBinding = new BasicHttpBinding();
             ChannelFactory<IServiceSql> factory = new ChannelFactory<IServiceSql>(httpBinding, endPoint);
             return factory.CreateChannel();
+        }
+
+        public static IServiceSql GetInstance()
+        {
+            if (connection() == null)
+                return null;
+
+            return connection();
         }
 
     }

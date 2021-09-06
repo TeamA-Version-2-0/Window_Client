@@ -92,7 +92,6 @@
     <Compile Include="Model\ModelClient.cs" />
     <Compile Include="NetworkModel\IService1.cs" />
     <Compile Include="NetworkModel\NetworkClient.cs" />
-    <Compile Include="ViewModel\EndpointAddress.cs" />
     <Compile Include="ViewModel\ViewModelClient.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

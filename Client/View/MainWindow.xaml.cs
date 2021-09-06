@@ -1,5 +1,4 @@
 ﻿
-using Client.ViewModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,7 +14,9 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModelClient();
+            ViewModelClient viewmodel = new ViewModelClient();
+            DataContext = viewmodel;
+            datagrid1.ItemsSource = viewmodel.Blacklist;
         }
     }
 }

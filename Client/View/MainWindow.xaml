@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="528" Width="900" ResizeMode="NoResize">
     <Grid Margin="0,-6,0,6">
-        <DataGrid Margin="10,77,234,4" ItemsSource="{Binding Forbidden_words}"></DataGrid>
-        <Button Command="{Binding Add}" Content="Добавить" HorizontalAlignment="Left" Margin="685,77,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
-        <Button Command="{Binding Delete}" Content="Удалить" HorizontalAlignment="Left" Margin="685,157,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
-        <Button Command="{Binding Update}" Content="Изменить" HorizontalAlignment="Left" Margin="685,237,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
+        <DataGrid x:Name="datagrid1" Margin="10,80,234,4" SelectedItem="{Binding SelectedBlacklistItem}"></DataGrid>
+        <Button Command="{Binding Add}" Content="Добавить" HorizontalAlignment="Left" Margin="680,128,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
+        <Button Command="{Binding Delete}" Content="Удалить" HorizontalAlignment="Left" Margin="680,205,0,0" VerticalAlignment="Top" Width="197" Height="52"/>
         <Label Content="Группа ID:" HorizontalAlignment="Left" Height="26" Margin="10,28,0,0" VerticalAlignment="Top" Width="73"/>
         <Label Content="" HorizontalAlignment="Left" Margin="88,28,0,0" VerticalAlignment="Top" Width="24"/>
+        <TextBox HorizontalAlignment="Left" Height="28" Margin="680,80,0,0" TextWrapping="Wrap" Text="{Binding AddBlacklistItem}" FontSize="16" VerticalAlignment="Top" Width="197"/>
     </Grid>
 </Window>

@@ -1,16 +1,33 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
-
-namespace Client.Model
+namespace Client
 {
-    class ModelClient
+    public class ModelClient : INotifyPropertyChanged
     {
-        public string Name_group { get; set; }
+        private string word;
 
-        public string Id { get; set; }
+        public string Word
+        {
+            get { return word; }
+            set
+            {
+                word = value;
+                OnPropertyChanged("Word");
+            }
+        }
 
-        public string Text { get; set; }
+        public ModelClient(string Text)
+        {
+            this.Word = Text;
+        }
 
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
     }
 }
